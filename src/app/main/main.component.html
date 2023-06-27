@@ -1,0 +1,57 @@
+<!-- Top Bar -->
+<nav class="navbar">
+  <div class="col-12">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="mobile-title">
+        <h6 style="display: none">
+        </h6>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right web-right-menu">
+      <li>
+        <p>
+          <i class="zmdi zmdi-account-circle"></i>
+          Welcome {{ User?.name }}
+        </p>
+      </li>
+      <li>
+        <div class="right-menu ml-3 mr-2">
+          <a href="javascript:;" (click)="logout()" title="Sign out"><i class="fa-solid fa-right-from-bracket"></i>
+            Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Left Sidebar -->
+<aside id="leftsidebar" class="sidebar" style="transition: initial;">
+  <div class="aside-container">
+    <div class="menu">
+      <div class="user-info name">
+        <div class="detail">
+          <h4>{{ User?.name }}</h4>
+        </div>
+        <span class="mobile-menu" style="display: none">
+          <a href="javascript:;" (click)="logout()" title="Sign out" class="waves-effect waves-block"><i
+              class="zmdi zmdi-power"></i></a>
+        </span>
+      </div>
+
+      <ul class="list" *ngIf="UserRole == 'admin'">
+        <li class="site-menu li-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a [routerLink]="['/']"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
+        </li>
+        <li class="site-menu li-item payment" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a [routerLink]="['/payment']"><i class="zmdi zmdi-money"></i><span>Payment</span></a>
+        </li>
+      </ul>
+      <ul class="list" *ngIf="UserRole == 'regular'">
+        <li class="site-menu li-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a [routerLink]="['/']"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</aside>
+<router-outlet></router-outlet>

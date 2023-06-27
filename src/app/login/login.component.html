@@ -1,0 +1,51 @@
+<span class="authentication">
+    <div style="height: 100vh !important;">
+        <div class="">
+            <div class="container-fluid py-0">
+                <div class="container">
+                    <div class="col-md-12 content-center fade-in-input">
+                        <div class="card-plain">
+                            <form class="form" #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && onLogin()">
+                                <div class="content">
+                                    <div class="input-group input-lg">
+                                        <h2 class="text-center title">Blow software</h2>
+                                    </div>
+                                    <div class="input-group input-lg">
+                                        <input type="text" class="form-control" placeholder="Username" name="username"
+                                            id="username" #username="ngModel" [(ngModel)]="loginData.username"
+                                            required />
+                                        <span *ngIf="
+                          (loginForm.submitted && !username.valid) ||
+                          username.touched
+                        " class="validation">
+                                            <span *ngIf="username.errors">Please Enter
+                                                Username</span>
+                                        </span>
+                                    </div>
+                                    <div class="input-group input-lg">
+                                        <input type="password" placeholder="Password" class="form-control"
+                                            name="password" id="password" #password="ngModel"
+                                            [(ngModel)]="loginData.password" required autocomplete="off" />
+                                        <span *ngIf="
+                          (loginForm.submitted && !password.valid) ||
+                          password.touched
+                        " class="validation">
+                                            <span *ngIf="password.errors">Please Enter
+                                                Password</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="footer text-center">
+                                    <button class="btn l-cyan waves-effect waves-light">
+                                        Sngn In
+                                    </button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>

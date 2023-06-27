@@ -1,0 +1,53 @@
+<section class="content">
+  <div class="block-header">
+    <div class="row">
+      <div class="col-lg-7 col-md-6 col-sm-12">
+        <h2>Payment
+          <small class="text-muted"></small>
+        </h2>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-12">
+
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row clearfix">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="header">
+            <h2>
+              <strong>Payment</strong>
+              Form
+            </h2>
+          </div>
+          <div class="body">
+            <form class="form" #paymentForm="ngForm" (ngSubmit)="paymentForm.form.valid && initiatePayment(paymentForm)">
+              <div class="row">
+                <div class="col-md-12">
+                  <label for="paymentAmount"><b>Amount</b>&nbsp;<small class="required">*</small></label>
+                  <div class="input-group input-lg">
+                    <input type="number" class="form-control" placeholder="Amount" name="paymentAmount"
+                      id="paymentAmount" #paymentAmount="ngModel" [(ngModel)]="paymentData.paymentAmount" required />
+                    <span *ngIf="(paymentForm.submitted && !paymentAmount.valid) || paymentAmount.touched "
+                      class="validation">
+                      <span *ngIf="paymentAmount.errors">Please Enter Amount</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-action">
+                  <button type="submit" class="btn l-cyan ">
+                    Pay Now
+                  </button>
+                  
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
